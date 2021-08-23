@@ -16,6 +16,7 @@ class HolaMundo extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       home: PrimeraPag(),
     );
+
   }
 }
 
@@ -53,11 +54,13 @@ class PrimeraPag extends StatelessWidget {
         //initialData: [],
         future: TheMovieDBService.traerPeliculas(),
         builder:
-          (BuildContext context, AsyncSnapshot<List> snapshot) {
+          (BuildContext context,
+           AsyncSnapshot<List> snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
               itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) {
+              itemBuilder: (context, 
+              index) {
                 var pelicula = snapshot.data![index];
                 return CajaPelicula(peli: pelicula);
               },
