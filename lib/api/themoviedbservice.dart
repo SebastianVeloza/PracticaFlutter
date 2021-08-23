@@ -5,6 +5,7 @@ import 'package:flutter_1/api/movies.dart';
 
 class TheMovieDBService {
 
+
   static final String API_url = "https://api.themoviedb.org/3";
   static final String API_key = "99b4c3070137e46945a47d68eb4d49f3";
 
