@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_1/ui/cajapelicula.dart';
+import 'package:flutter_1/ui/spinnerwidget.dart';
+
+import 'api/themoviedbservice.dart';
 
 void main() => runApp(HolaMundo());
 
@@ -41,16 +45,28 @@ class PrimeraPag extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Segunda Pantalla"),
+        title: Text('Pelis más valoradas')
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
+      body: FutureBuilder (
+        //podría poner
+        //initialData: [],
+        future: TheMovieDBService.getTopRatedMovies(),
+        builder:
+          (BuildContext context, AsyncSnapshot<List> snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data!.length,
+              itemBuilder: (context, index) {
+                var pelicula = snapshot.data![index];
+                return CajaPelicula(peli: pelicula);
+              },
+            );
+          } else {
+            return SpinnerWidget();
+          }
+
           },
-          child: Text('Abrir Hola Mundo'),
-        ),
-      ),
+      )
     );
   }
-  }
+}
