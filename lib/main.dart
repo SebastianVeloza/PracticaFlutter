@@ -1,7 +1,8 @@
+/*Aplicacion para pasar de dos paginas con boton para cambiar entre ellas y consumo de API Themoviedb.com
+Hecho por:Sebastian Veloza*/ 
 import 'package:flutter/material.dart';
 import 'package:flutter_1/ui/cajapelicula.dart';
 import 'package:flutter_1/ui/spinnerwidget.dart';
-
 import 'api/themoviedbservice.dart';
 
 void main() => runApp(HolaMundo());
@@ -27,7 +28,7 @@ class PrimeraPag extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text('Abrir Segunda Pantalla'),
+          child: Text('Ver lista de peliculas'),
           onPressed: () {
             Navigator.push(
               context,
@@ -45,12 +46,12 @@ class PrimeraPag extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pelis más valoradas')
+        title: Text('Peliculas')
       ),
       body: FutureBuilder (
         //podría poner
         //initialData: [],
-        future: TheMovieDBService.getTopRatedMovies(),
+        future: TheMovieDBService.traerPeliculas(),
         builder:
           (BuildContext context, AsyncSnapshot<List> snapshot) {
           if (snapshot.hasData) {
