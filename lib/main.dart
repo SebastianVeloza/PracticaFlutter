@@ -27,9 +27,10 @@ class PrimeraPag extends StatelessWidget {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            child: Text("Consumiento API de peliculas 'themoviedb',",
+            child: Text(" Consumiento API de peliculas 'themoviedb',",
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.black,
@@ -37,7 +38,7 @@ class PrimeraPag extends StatelessWidget {
                 )),
           ),
           Container(
-            child: Text(" en donde podran ver una lista de las mejores ",
+            child: Text("  en donde podran ver una lista de las mejores ",
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.black,
@@ -45,7 +46,7 @@ class PrimeraPag extends StatelessWidget {
                 )),
           ),
           Container(
-            child: Text("peliculas con su clasificacion y su descripcion.",
+            child: Text("   peliculas con su clasificacion y su descripcion.",
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.black,
